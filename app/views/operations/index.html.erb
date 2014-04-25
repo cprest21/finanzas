@@ -1,0 +1,45 @@
+<h1>Listing operations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation ID</th>
+      <th>Operation type</th>
+      <th>Store</th>
+      <th>Title</th>
+      <th>Account</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operations.each do |operation| %>
+      <tr>
+        <td><%= operation.id %></td>
+        <td><%= operation.operation_type_id %></td>
+        <td><%= operation.store_id %></td>
+        <td><%= operation.title %></td>
+        <td><%= operation.account_id %></td>
+        <td><%= operation.total_amount %></td>
+        <td><%= link_to 'Ver detalle de operacion', operation_items_path(:operation_id => operation.id) %></td>
+         <td><%= link_to 'Show', operation %></td>
+        <td><%= link_to 'Edit', edit_operation_path(operation) %></td>
+        <td><%= link_to 'Destroy', operation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @prev_offset >= 0 %>
+  <%= link_to 'Anterior', operations_path(:offset => @prev_offset) %>
+<% end %>
+<% if @count > @next_offset %>
+<%= link_to 'Siguiente', operations_path(:offset => @next_offset) %>
+<% end %>
+<br>
+<br>
+<%= link_to 'New Operation', new_operation_path %>

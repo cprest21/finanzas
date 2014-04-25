@@ -1,0 +1,40 @@
+<%= form_for(@operation) do |f| %>
+  <% if @operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+      <% @operation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :operation_type_id %><br>
+    <%= collection_select(:operation, :operation_type_id, OperationType.all, :id, :title) %>
+  </div>
+  <div class="field">
+    <%= f.label :store_id %><br>
+    <%= collection_select(:operation, :store_id, Store.all, :id, :name) %>
+   
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :account_id %><br>
+    <%= collection_select(:operation, :account_id, Account.all, :id, :title) %>
+  </div>
+   
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

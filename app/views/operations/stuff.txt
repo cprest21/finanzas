@@ -1,0 +1,40 @@
+<!--<% f.fields_for :operation_items do |builder| %>-->
+<!--<% end %>-->
+
+, operation_items_path(:operation_item_id => :operation_item)
+
+, :disabled=>@disabled)
+
+<%=f.association :developer, :as => :select %>
+<%=f.estimated_time
+<% end %>
+
+ ***Operations form***
+ <div class = "field">
+    <table border=0>
+      <tr>
+        <td colspan="4">
+          <br>
+          <%= f.label :operation_items %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :budget_category %>
+        </td>
+        <td>
+          <%= f.label :article %>
+        </td>
+        <td>
+          <%= f.label :title %>
+        </td>
+        <td>
+          <%= f.label :amount %>
+        </td>
+      </tr>
+    </table> 
+      <%= f.fields_for :operation_items do |operation_item| %>
+      <%= render 'operation_item_fields', :f => operation_item %>
+    .links
+      <%= link_to_add_association 'add operation item', f, :operation_items %>
+      <% end %>

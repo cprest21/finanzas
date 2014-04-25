@@ -1,0 +1,17 @@
+.nested_fields
+<table border=0> 
+    <tr>
+      <td>
+        <%= collection_select(:operation_item, :budget_category_id, BudgetCategory.all, :id, :name) %>
+      </td>
+      <td>
+        <%= collection_select(:operation_item, :article_id, Article.all, :id, :name) %>
+      </td>
+      <td>
+        <%= f.text_field :title %>
+      </td>
+      <td>
+        <%= f.number_field :amount %>
+      </td>
+    </tr>
+</table>

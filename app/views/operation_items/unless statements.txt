@@ -1,0 +1,3 @@
+ #unless oi.budget_category.nil?
+ #unless oi.article.nil? 
+ #unless oi.operation.nil? 

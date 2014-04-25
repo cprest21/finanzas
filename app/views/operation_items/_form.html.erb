@@ -1,0 +1,48 @@
+<%= form_for(@operation_item) do |f| %>
+  <% if @operation_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operation_item.errors.count, "error") %> prohibited this operation_item from being saved:</h2>
+
+      <ul>
+      <% @operation_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :budget_category_id %><br>
+    <%= collection_select(:operation_item, :budget_category_id, BudgetCategory.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :article_id %><br>
+    <%= collection_select(:operation_item, :article_id, Article.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :operation_id %><br>
+    <%= collection_select(:operation_item, :operation_id, Operation.all, :id, :title) %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :op_id, :value => params[:operation_id] %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.number_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+   <div class="check_box">
+    <%= f.label :income %><br>
+    <%= f.check_box :income %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save and Add another item", :name => 'save_add' %>
+  </div
+
+<% end %>

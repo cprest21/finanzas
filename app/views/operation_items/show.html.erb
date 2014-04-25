@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Budget category:</strong>
+  <%= @operation_item.budget_category.name unless @operation_item.budget_category.nil? %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @operation_item.article_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @operation_item.title %>
+</p>
+
+<p>
+  <strong>Operation:</strong>
+  <%= @operation_item.operation_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @operation_item.amount_with_format %>
+</p>
+
+<%= link_to 'Edit', edit_operation_item_path(@operation_item) %> |
+<%= link_to 'Back', operation_items_path %>

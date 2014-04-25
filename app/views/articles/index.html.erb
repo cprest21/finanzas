@@ -1,0 +1,34 @@
+<h1>Listing articles</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Details</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.category.id unless article.category.nil? %></td>
+        <td><%= article.brand %></td>
+        <td><%= article.name %></td>
+        <td><%= article.details %></td>
+        <td><%= article.income %></td>        
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Show category details', article_path(article.category.id) unless article.category.nil? %></td>'
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>

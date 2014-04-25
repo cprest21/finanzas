@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finances</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag :cocoon %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<br>
+<%= link_to 'Countries', countries_path %>
+<%= link_to 'Provinces', provinces_path %>
+<%= link_to 'Localities', localities_path %>
+<%= link_to 'Stores', stores_path %>
+<%= link_to 'Articles', articles_path %>
+<%= link_to 'Brands', brands_path %>
+<%= link_to 'Categories', categories_path %>
+<%= link_to 'Companies', companies_path %>
+<%= link_to 'Operations', operations_path %>
+<%= link_to 'Operation Items', operation_items_path %>
+<%= link_to 'Operation Types', operation_types_path %>
+<%= link_to 'Budgets', budgets_path %>
+<%= link_to 'Users', users_path %>
+
+</body>
+</html>

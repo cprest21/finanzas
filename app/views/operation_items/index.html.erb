@@ -1,0 +1,39 @@
+<h1>Listing operation_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Budget category</th>
+      <th>Article</th>
+      <th>Operation</th>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Account</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operation_items.each do |oi| %>
+      <tr>
+        <td><%= oi.budget_category_id %></td>
+        <td><%= oi.article_id  %></td>
+        <td><%= oi.operation_id %></td>
+        <td><%= oi.title %></td>
+        <td><%= oi.amount_with_format %></td>
+        <td><%= oi.operation.account.id unless oi.operation.nil? || oi.operation.account.nil? %></td>
+        <td><%= link_to 'Show', oi %></td>
+        <td><%= link_to 'Show Operation Details', oi.operation %></td>
+        
+        <td><%= link_to 'Edit', edit_operation_item_path(oi) %></td>
+        <td><%= link_to 'Destroy', oi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Operation item', new_operation_item_path %>
