@@ -47,8 +47,8 @@ gem 'populator'
 gem 'faker'
 gem 'cocoon'
 
-#gem 'simple_form'
-#gem "paperclip", "~> 4.1"
-#gem 'kaminari'
-#gem "less-rails"
-#gem "twitter-bootstrap-rails"
+gem 'simple_form'
+gem "paperclip", "~> 4.1"
+gem 'kaminari'
+gem "less-rails"
+gem "twitter-bootstrap-rails"

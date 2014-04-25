@@ -1,17 +1,17 @@
 Finances::Application.routes.draw do
   resources :users
 
-  resources :account_users
-
+  resources :accounts do
+    resources :account_users
+  end
+  
   resources :articles
 
   resources :operation_types
 
-  resources :budget_categories
-
-  resources :budgets
-
-  resources :accounts
+  resources :budgets do
+    resources :budget_categories
+  end
 
   resources :stores
 
@@ -20,7 +20,6 @@ Finances::Application.routes.draw do
   #resources :localities #only => [:index, :new, :edit]
     #end
   #end
-
 
   resources :provinces
 

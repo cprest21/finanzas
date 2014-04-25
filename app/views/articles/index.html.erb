@@ -21,7 +21,7 @@
         <td><%= article.details %></td>
         <td><%= article.income %></td>        
         <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Show category details', article_path(article.category.id) unless article.category.nil? %></td>'
+        <td><%= link_to 'Show category details', category_path(article.category.id) unless article.category.nil? %></td>'
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
